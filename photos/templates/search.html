@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search page</title>
+</head>
+<style>
+table ,td,th{
+    border:2px solid black;
+    padding:5px 5px;
+    margin:5px;
+    border-collapse:collapse;
+
+
+}
+
+
+
+</style>
+
+
+<body>
+
+<div>
+  <form method="get" action="" enctype="multipart/form-data"> {% csrf_token %}
+
+    <label for="store_name">Store_Name  : </label>
+    <select name="store_name" id="store_name" >
+        <option></option>
+        {% for d in data %}
+        <option >{{d.store_name}} </option>
+        {% endfor %}
+    </select><br>
+
+    <label>Brand_name  :</label>
+    <select name="brand_name" id="brand_name" >
+        <option></option>
+        {% for d in data2 %}
+        <option>{{d.brand_Name}}</option>
+        {% endfor %}
+    </select> <br>
+
+    <label >Date from :</label>
+    <input type="date" name="fromdate" id="fromdate">
+
+    <label > To :</label>
+    <input type="date" name="todate" id="todate"> <br>
+
+      <input type="submit" value="submit">
+
+  </form>
+</div>
+<h3>Total Photos : </h3><h1>{{count}}</h1>
+<div style="border:2px black solid;border-style:none">
+    <table style="float:left">
+        <tr>
+            <th> Store Name</th>
+            <th>No.of photos</th>
+        </tr>
+        {% for i in st %}
+        <tr>
+            <td>{{i.store_name}}  </td>
+            <td> {{ i.total }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th> Brand Name</th>
+            <th>No.of photos</th>
+        </tr>
+        {% for i in bn %}
+        <tr>
+            <td>{{i.brand_name}}  </td>
+            <td> {{ i.total }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- display photos-->
+<div style="margin-top:35px">
+    {% for i in search %}
+    <div style="float:left; width:200px; height:200px;margin-top:15px;padding:5px;border:2px solid black">
+        {{i.store_name}}<br>
+        {{i.brand_name}}<br>
+        {{i.date}} <br>
+        <img src="{{i.photo.url}}" height="130" width="120">
+    </div>
+    {% endfor %}
+</div>
+
+
+
+</body>
+</html>

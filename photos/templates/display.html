@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display</title>
+    <link rel="stylesheet" href="{% static 'display.css' %}">
+</head>
+<body>
+
+
+
+
+
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Store_Name</th>
+            <th> Store_Code</th>
+            <th>Store_Createdate </th>
+            <th style="border-style:hidden;background-color:white"> </th>
+            <th style="border-style:hidden;background-color:white"> </th>
+
+        </tr>
+        {% for i in POST %}
+        <tr>
+            <td>{{ i.store_name }}</td>
+            <td>{{ i.store_code }}</td>
+            <td>{{ i.store_createdate }}</td>
+            <td style="border-style:hidden;background-color:white">
+            <form method="POST" action="{% url 'storeEdit' i.id %}" enctype="multipart/form-data"> {% csrf_token %}
+                <input type="submit" value="Edit">
+            </form>  </td>
+
+            <td style="border-style:hidden;background-color:white">
+            <form method="POST" action="{% url 'store_delete' i.id %}" enctype="multipart/form-data"> {% csrf_token %}
+                <input type="submit" value="Delete">
+            </form>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+</div>
+{% for msg in messages %}
+<h1>{{msg}}</h1>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>photos display</title>
+
+</head>
+<body>
+{% for i in POST %}
+<div style="float:left; width:200px; height:200px;">
+{{i.store_name}}<br>
+{{i.brand_name}}<br>
+{{i.date}}<br>
+<img src="{{i.photo.url}}" height="100" width="100"> <br> <br>
+</div>
+{% endfor %}
+
+
+
+
+
+</body>
+</html>

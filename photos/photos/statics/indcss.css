@@ -1,0 +1,51 @@
+.navbar{
+    overflow:hidden;
+    background-color:black;
+
+}
+.dropdown{
+    overflow:hidden;
+    float:left;
+}
+
+.dropdown .dropbtn{
+    padding:14px 16px;
+    margin:0;
+    text-decoration:none;
+    color:white;
+    text-weight:100;
+    float:left;
+}
+
+.dropbtn:hover{
+    background-color:lightblue;
+}
+
+.dropcontent a:hover{
+    background-color:red;
+}
+
+.dropcontent a{
+    float:none;
+    display:block;
+    color:blue;
+    text-decoration:none;
+    padding:14px 16px;
+    margin:5px;
+
+}
+
+.dropcontent{
+    display:none;
+    position:absolute;
+    z-index:1;
+    background-color:yellow;
+
+
+}
+
+
+.dropdown:hover .dropcontent{
+    display:block;
+    font-size:30px;
+}

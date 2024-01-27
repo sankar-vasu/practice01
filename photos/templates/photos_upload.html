@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photos upload</title>
+    <link rel="stylesheet" href="{% static 's_entry.css' %}">
+</head>
+<body>
+<div >
+  <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+    <label for="store_name">Store_name :</label>
+    <select name="store_name" id="store_name">
+      <option></option>
+      {% for s in store %}
+      <option value={{s.store_name}}>{{s.store_name}}</option>
+      {% endfor %}
+    </select> <br>
+
+      <label for="brand_name">Brand name :</label>
+    <select name="brand_name" id="brand_name">
+      <option></option>
+      {% for b in brands %}
+      <option value={{b.brand_Name}} >{{b.brand_Name}}</option>
+      {% endfor %}
+    </select><br>
+
+    <label for="photo">Photo :</label>
+    <input type="file" id="photo" name="photo" placeholder="upload photo"> <br>
+
+    <input type="submit" value="submit">
+
+
+  </form>
+</div>
+
+
+
+</body>
+</html>

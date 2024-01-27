@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store Edit</title>
+    <link rel="stylesheet" href="{% static 's_entry.css' %}">
+</head>
+<body>
+<div>
+<form method="POST" action="{% url 'savestoreeditdata' data.id %}" enctype="multipart/form-data"> {% csrf_token %}
+  <label >Store_name</label>
+  <input name="store_name" value={{data.store_name}} > <br>
+
+  <label >Store_code</label>
+  <input name="store_code" value={{data.store_code}}  ><br>
+
+  <label >Store_createdate</label>
+  <input  name="store_createdate" value={{data.store_createdate}} ><br><br>
+
+  <input type="submit" value="submit">
+
+
+</form>
+</div>
+</body>
+</html>

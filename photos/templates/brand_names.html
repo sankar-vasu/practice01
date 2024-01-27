@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brands</title>
+</head>
+<body>
+<div>
+  <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+    <label for="brand_Name">Brand_name  :  </label>
+    <input type="text" id="brand_Name" name="brand_Name" placeholder="Enter Brand name "> <br>
+
+      <input type="submit" value="submit">
+
+  </form>
+</div>
+
+<pre>
+
+
+
+</pre>
+
+
+{% for i in POST %}
+Brand_Name : {{i.brand_Name}}<br>
+Created_date : {{i.date}} <br>
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+div{
+    border:2px solid black;
+    background-color:pink;
+    color:blue;
+    text-weight:50;
+    width:30%;
+    margin:3px;
+    padding:10px;
+}
+form , input ,  {
+    padding:3px;
+
+}
+input[type="text"] {
+             display: block;
+             margin : 0 auto;
+        }
